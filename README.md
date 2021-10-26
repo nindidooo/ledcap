@@ -14,12 +14,14 @@ You should now see an entry for ATtiny in the Tools > Board menu. Select “ATti
 
 
 ## Step 3: Upload
-Download and compile [micronucleus](https://github.com/micronucleus/micronucleus) 
+
 
 Finally we upload to device:
 On Mac: you will have a default pre-compiled version ready to use for t85. If you need to rebuild, look below in FAQ
 
 ```
+cd
+git clone https://github.com/micronucleus/micronucleus
 cd ~/micronucleus/commandline/builds/x86_64-apple-darwin/
 ./micronucleus --run ~/Documents/Arduino/sketch_sep22a/sketch_sep22a.ino.tiny8.hex
 ```
