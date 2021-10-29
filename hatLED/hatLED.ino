@@ -1,7 +1,10 @@
 // constants won't change. They're used here to set pin numbers:
-const int buttonPin = 2;    // the number of the pushbutton pin
+
 const int front_light = 0;      // the number of the LED pin
 const int rear_light = 1;      // the number of the LED pin
+const int buttonPin = 2;    // the number of the pushbutton pin
+const int speakerPin = 3;    // the number of the speaker pin
+
 int counter = 0;
 
 // Variables will change:
@@ -26,6 +29,7 @@ void setup() {
 }
 
 void loop() {
+  //  analogWrite(speakerPin, 255);
   // read the state of the switch into a local variable:
   int reading = digitalRead(buttonPin);
 
@@ -51,6 +55,7 @@ void loop() {
       //      if (buttonState == HIGH) {
       ledState = !ledState;
       counter += 1;
+      play_tone(counter);
       //      }
     }
   }
@@ -75,6 +80,24 @@ void loop() {
 
   // save the reading. Next time through the loop, it'll be the lastButtonState:
   lastButtonState = reading;
+}
+
+void play_tone(int counter)
+{
+  if (counter == 4) {
+    analogWrite(speakerPin, 180);
+    delay(400);
+    analogWrite(speakerPin, 0);
+  }
+  else {
+
+    for (int i = 0; i < counter; i++) {
+      analogWrite(speakerPin, 180);
+      delay(80);
+      analogWrite(speakerPin, 0);
+      delay(80);
+    }
+  }
 }
 
 void front_light_on()
@@ -112,8 +135,8 @@ void both_lights_on()
 
 void flash_rear_light()
 {
-  int delay_val = 1000;
-  analogWrite(rear_light, 2);
+  int delay_val = 100;
+  analogWrite(rear_light, 255);
   delay(delay_val);
   analogWrite(rear_light, 0);
   delay(delay_val);
