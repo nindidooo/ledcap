@@ -6,7 +6,7 @@ firmware for attiny85 to flash rear tail lights of cap
 - Navigate the menu Tools -> Board -> Boards Manger and type “attiny” into the top search board; there will click on the “Install” button on the attiny board package.
 - Click “OK” to save and restart the Arduino IDE. 
 
-## Step 2: Setup Arduion
+## Step 2: Setup Arduino
 You should now see an entry for ATtiny in the Tools > Board menu. Select “ATtiny25/45/85”.
  - Go 'Tools'->'Boards' and choose 'ATtiny 25/45/85'
  - Go 'Tools'->'Programmer' choose 'USBtinyISP'
